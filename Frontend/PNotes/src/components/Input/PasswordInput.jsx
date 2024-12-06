@@ -5,6 +5,10 @@ const PasswordInput = ({value , onChange , placeholder}) => {
 
     const [isShowPassword , setIsShowPassword ] = useState(false)
 
+    const toggleShowPassword = () => {
+      setIsShowPassword(!isShowPassword)
+    }
+
   return (
     <div className='flex items-center bg-transparent border-[1.5px] px-5 
     rounded mb-3'>
@@ -18,9 +22,13 @@ const PasswordInput = ({value , onChange , placeholder}) => {
 
         />
 
-        {isShowPassword ? (<FaRegEy size = {22} className = "text-primary cursor-pointer"/>) :
-        (
-            <FaRegEyeSlash size={22} className='text-slate-400 cursor-pointer'/>
+        {isShowPassword ? 
+        (<FaRegEye size = {22} className = "text-[#2B85FF] cursor-pointer"
+        onClick = {() => toggleShowPassword()}
+        />) :
+        (<FaRegEyeSlash size={22} className='text-slate-400 cursor-pointer'
+        onClick = {() => toggleShowPassword()}
+         />
         )}
 
     </div>
